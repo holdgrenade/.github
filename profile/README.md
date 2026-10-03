@@ -27,7 +27,7 @@
 
 - **On your Mac**, the `grenade` command starts each agent in a tmux session, and the `grenaded` daemon follows what the agents do through their hooks.
 - **On the same Wi‑Fi**, the phone talks to the Mac directly.
-- **From anywhere else**, the phone and the Mac both dial out to a relay, so the Mac needs no open port and no VPN. The relay forwards bytes it cannot read. We run the main one at `relay.holdgrenade.com`, and you can [host your own](https://www.holdgrenade.com/relay).
+- **From anywhere else**, the phone and the Mac both dial out to a relay, so the Mac needs no open port and no VPN. The relay forwards bytes it cannot read. We run the main one at `relay.holdgrenade.com`, and you can [host your own](https://www.holdgrenade.com/relay): its code is [`grenade-relay`](https://github.com/holdgrenade/grenade-relay).
 
 ## Get started
 
@@ -53,9 +53,10 @@ Every step and every command is on the [install page](https://www.holdgrenade.co
 | Repository | What it is |
 | --- | --- |
 | [`grenade-cli`](https://github.com/holdgrenade/grenade-cli) | The Mac side: the `grenaded` daemon and the `grenade` command. MIT license. |
+| [`grenade-relay`](https://github.com/holdgrenade/grenade-relay) | The relay that joins a phone to its Mac across networks. Run your own with Docker: [Self-host a relay](https://www.holdgrenade.com/relay). MIT license. |
 | [`homebrew-tap`](https://github.com/holdgrenade/homebrew-tap) | The Homebrew tap behind `brew install holdgrenade/tap/grenade`. |
 
-The apps, the relay and the protocol are in repositories that are not public.
+The apps and the protocol are in repositories that are not public.
 
 ## Security
 
