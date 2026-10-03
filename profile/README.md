@@ -4,7 +4,7 @@
 
 # Grenade
 
-**Run your AI coding agents from your pocket.** Grenade lets you watch and answer the AI coding agents running in terminals on your Mac or your Linux computer (Claude Code, Codex, or a plain shell) from your phone or from a Mac app.
+**Run your AI coding agents from your pocket.** Grenade lets you watch and answer the AI coding agents running in terminals on your Mac (Claude Code, Codex, or a plain shell) from your phone or from a Mac app.
 
 [Website](https://www.holdgrenade.com) · [Install](https://www.holdgrenade.com/install) · [Guide](https://www.holdgrenade.com/guide) · [Security](https://www.holdgrenade.com/security) · [Blog](https://www.holdgrenade.com/blog)
 
@@ -14,7 +14,7 @@
 - **Answer from where you are.** Read the live terminal, and answer Claude Code's permissions, questions and plans on a card.
 - **Type or talk.** Hold the mic, and your words become text you can fix before it is sent.
 - **Start work away from the desk.** Open a new session in a folder, or resume a past Claude conversation.
-- **Nothing gets lost.** Each agent runs in a tmux session on your own computer, so closing a window ends nothing, and your terminal can attach to the same session at any time.
+- **Nothing gets lost.** Each agent runs in a tmux session on your own Mac, so closing a window ends nothing, and your terminal can attach to the same session at any time.
 - **No account.** A phone is paired by scanning a QR code on the Mac, and `grenade unpair` on the Mac ends a pairing at once.
 
 ## How it works
@@ -25,7 +25,7 @@
                          (end-to-end encrypted both ways)
 ```
 
-- **On your Mac or Linux computer**, the `grenade` command starts each agent in a tmux session, and the `grenaded` daemon follows what the agents do through their hooks.
+- **On your Mac**, the `grenade` command starts each agent in a tmux session, and the `grenaded` daemon follows what the agents do through their hooks.
 - **On the same Wi‑Fi**, the phone talks to the Mac directly.
 - **From anywhere else**, the phone and the Mac both dial out to a relay, so the Mac needs no open port and no VPN. The relay forwards bytes it cannot read. We run the main one at `relay.holdgrenade.com`, and you can [host your own](https://www.holdgrenade.com/relay): its code is [`grenade-relay`](https://github.com/holdgrenade/grenade-relay).
 
