@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Report a security problem privately
+    url: https://github.com/holdgrenade/grenade-cli/security/advisories/new
+    about: For anything that lets someone into another person's Mac or lets them read a session.
+  - name: The guide
+    url: https://www.holdgrenade.com/guide
+    about: How Grenade works, and what to check when something is off.

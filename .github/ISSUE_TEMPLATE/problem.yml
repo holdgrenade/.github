@@ -1,0 +1,36 @@
+name: Report a problem
+description: Something in Grenade does not work as it should
+body:
+  - type: markdown
+    attributes:
+      value: |
+        If the problem lets someone into another person's Mac, or lets them read a session, do not describe it here: [report it privately](https://github.com/holdgrenade/grenade-cli/security/advisories/new).
+  - type: dropdown
+    id: part
+    attributes:
+      label: Which part of Grenade?
+      multiple: true
+      options:
+        - The grenade command or the daemon on the Mac
+        - The iPhone app
+        - The Mac app
+        - Installing with Homebrew or npm
+        - Reaching the Mac through a relay
+        - The website
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you saw, and what you expected to see.
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: The output of `grenade --version`, your macOS version, and the app's version if an app is involved.
+      placeholder: "grenade 1.0.33, macOS 26.1, iPhone app 1.0.0"
+    validations:
+      required: false
