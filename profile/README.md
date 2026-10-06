@@ -51,7 +51,7 @@ Then get an app and scan the QR code:
 | --- | --- |
 | iPhone (iOS 17 or later) | [Grenade: Agent Remote on the App Store](https://apps.apple.com/app/grenade-agent-remote/id6818136871) |
 | Mac (macOS 26 or later) | [Download Grenade.dmg](https://downloads.holdgrenade.com/mac/Grenade.dmg) |
-| Android | Not released yet |
+| Android (Android 10 or later) | [Grenade: Agent Remote on Google Play](https://play.google.com/store/apps/details?id=com.holdgrenade.grenade) |
 
 Every step and every command is on the [install page](https://www.holdgrenade.com/install).
 
