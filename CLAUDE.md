@@ -15,7 +15,7 @@ README.md                            what this repo is, for someone who opens it
 
 ## Rules
 
-- **Show only what a user can get today.** The profile lists an app with a link once that link opens, and a repo once it is public. Android links to its Google Play listing (public, checked 2026-10-06); the private repos (apps, protocol) are named only as "not public". `grenade-relay` is public since 2026-10-03 and listed.
+- **Show only what a user can get today.** The profile lists an app with a link once that link opens, and a repo once it is public. Android links to its Google Play listing; the private repos (apps, protocol) are named only as "not public". `grenade-relay` is public and listed.
 - **The words are the website's.** Status colors, the three steps and the security claims say what `holdgrenade.com` says (`/`, `/install`, `/security`). When the website changes one of them, change it here.
 - **The image has an absolute address** (`raw.githubusercontent.com/holdgrenade/.github/main/profile/grenade-logo.png`), so it shows on the profile page as well as in the repo. Never redraw the logo: copy it again from `grenade-website/public/brand/` when it changes.
 - **Security reports go to private vulnerability reporting on `grenade-cli`** (turned on in that repo's settings), whichever part they are about, because it is the public repo the website sends people to; a report about the relay may also go to `grenade-relay`, which has it on too.
