@@ -4,6 +4,7 @@
  *
  *   node release-notes.mjs [<previous tag>]   the commits since that tag (all of them when it is empty), from git
  *   node release-notes.mjs --lines            bullets already written, read from stdin, to rewrite
+ *   node release-notes.mjs --commits          the commits whose hashes are on stdin, one per line (an old version's)
  *
  * Prints "- " lines and nothing else. Who reads the notes is RELEASE_NOTES_READER ("people using Grenade on their
  * iPhone"). Without ANTHROPIC_API_KEY, or when the call fails or the answer is not a list of bullets, it prints the
@@ -19,11 +20,13 @@ const NOTHING = "- No change of its own.";
 
 const args = process.argv.slice(2);
 const fromLines = args.includes("--lines");
+const fromCommits = args.includes("--commits");
 const since = args.find((a) => !a.startsWith("--")) || "";
 
-/** The commits since `since` that a person wrote: subject, body and the files they touched. */
+/** The commits since `since` (or the ones named on stdin) that a person wrote: subject, body and the files they touched. */
 function commits() {
-  const range = since ? [`${since}..HEAD`] : ["HEAD"];
+  const range = fromCommits ? ["--no-walk=unsorted", ...readFileSync(0, "utf8").split(/\s+/).filter(Boolean)] : since ? [`${since}..HEAD`] : ["HEAD"];
+  if (fromCommits && range.length === 1) return [];
   const out = execFileSync("git", ["log", ...range, "--no-merges", "--name-only", "--format=%x1e%an%x1f%s%x1f%b%x1f"], {
     encoding: "utf8",
     maxBuffer: 64 * 1024 * 1024,
