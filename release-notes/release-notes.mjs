@@ -86,7 +86,9 @@ async function rewrite(input) {
         continue;
       }
       const json = await res.json();
-      return bullets(json.content?.map((b) => b.text || "").join("") || "");
+      const answer = bullets(json.content?.map((b) => b.text || "").join("") || "");
+      if (answer) return answer;
+      console.error("release-notes: the answer was not a list of bullets");
     } catch (error) {
       console.error(`release-notes: ${error.message}`);
     }
@@ -94,9 +96,12 @@ async function rewrite(input) {
   return null;
 }
 
-/** The answer if it is what a CHANGELOG section holds (1 to 10 "- " lines), else null. */
+/** The answer if it is what a CHANGELOG section holds (1 to 10 "- " lines, any words before or after them dropped), else null. */
 function bullets(text) {
-  const lines = text.trim().split("\n").map((l) => l.trimEnd()).filter(Boolean);
+  const all = text.trim().split("\n").map((l) => l.trimEnd()).filter(Boolean);
+  const first = all.findIndex((l) => l.startsWith("- "));
+  const last = all.findLastIndex((l) => l.startsWith("- "));
+  const lines = first < 0 ? [] : all.slice(first, last + 1);
   const ok = lines.length >= 1 && lines.length <= 10 && lines.every((l) => /^- \S/.test(l) && l.length <= 400);
   return ok ? lines.join("\n") : null;
 }
